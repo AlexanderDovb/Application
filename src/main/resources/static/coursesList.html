@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Courses List</title>
+</head>
+<body>
+<div align="center">
+  <h1>Courses List</h1>
+  <br/><br/>
+  <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Course</th>
+      <th>Duration</th>
+      <th>Free Places</th>
+      <th>Add</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course : ${courses}">
+      <td th:text="${course.courseId}">ID</td>
+      <td th:text="${course.courseName}">Course</td>
+      <td th:text="${course.duration}">Duration</td>
+      <td th:text="${course.freePlaces}">Free Places</td>
+      <td><a th:href="@{/add-course/{studentId}(studentId = ${studentId})/{courseId}(courseId = ${course.courseId})}">Add</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
